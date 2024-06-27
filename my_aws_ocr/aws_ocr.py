@@ -29,7 +29,7 @@ class AWSTextDetector:
                  that describe elements detected in the image.
         """
         if document_file_name is not None:
-            with open('../assests/Referral_letter_example.jpg', 'rb') as document_file:
+            with open(document_file_name, 'rb') as document_file:
                 document_bytes = document_file.read()
         try:
             response = self.textract_client.detect_document_text(
@@ -59,5 +59,5 @@ class AWSTextDetector:
 
 if __name__ == "__main__":
     aws_text_detector = AWSTextDetector()
-    response = aws_text_detector.detect_file_text(document_file_name='../assests/Referral_letter_example.jpg')
+    response = aws_text_detector.detect_file_text(document_file_name='assests/Referral_letter_example.jpg')
     print(response)
